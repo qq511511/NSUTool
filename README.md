@@ -52,7 +52,7 @@ NSUTool 是一款专为 Android 设备设计的 Root 工具，具有以下特色
 ---
 # 下载链接
 
-## 国内用户首选
+### 国内用户首选
 
 **123云盘**
 https://www.123912.com/s/upqVjv-y7eNd
@@ -62,6 +62,7 @@ https://www.cccimg.com/down.php/497322715c19a54cfb3b0d9be9cb1150.zip
 
 ## 境外用户首选
 
-**Github**
+**Github Releases**
+https://github.com/qq511511/NSUTool/releases
 
 ---
