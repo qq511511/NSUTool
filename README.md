@@ -48,10 +48,12 @@ NSUTool 是一款专为 Android 设备设计的 Root 工具，具有以下特色
 ---
 *更新者: KUAN MineACE*  
 *如有问题请反馈至: knroot6@163.com*
+
 ---
 # 下载链接
 
 ## 国内用户首选
 ### 123云盘
 https://www.123912.com/s/upqVjv-y7eNd
+
 ---
