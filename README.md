@@ -60,7 +60,7 @@ https://www.123912.com/s/upqVjv-y7eNd
 **彩虹外链网盘**
 https://www.cccimg.com/down.php/497322715c19a54cfb3b0d9be9cb1150.zip
 
-## 境外用户首选
+### 境外用户首选
 
 **Github Releases**
 https://github.com/qq511511/NSUTool/releases
