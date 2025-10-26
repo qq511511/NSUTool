@@ -94,6 +94,12 @@ for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
 done
 echo -ne " ${BOLD_CYAN}完成${NC}"
 }
+echo -e "[加载] ${BOLD_CYAN}正在加载全局函数，请稍后...${NC}"
+echo
+jdt
+clear
+echo "#!/system/bin/sh&bash || sdcard>Android
+"
 jdt2() {
 # 第一个进度条：从0%到100%
 for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
@@ -159,6 +165,10 @@ echo -e "7) ${BOLD_CYAN}KernelSUNext(T0级别的管理器)${NC}"
 echo
 echo -e "8) ${BOLD_CYAN}APatchNext(4系想极致隐藏首选)${NC}"
 echo
+echo -e "9) ${BOLD_CYAN}MKSU(KernelSU的分支)${NC}"
+echo
+echo -e "10) ${BOLD_CYAN}Magiks(官方原版面具)"
+echo
 echo -e "${BOLD_YELLOW}=================================${NC}"
 echo
 echo -ne "[输入] ${BOLD_GREEN}"
@@ -180,22 +190,46 @@ echo -e "${NC}5) ${BOLD_CYAN}JzsData(适用于Android8-14)${NC}"
 echo
 echo -e "6) ${BOLD_CYAN}YTintPro(适用于Android10-14，5系内核)"
 echo
-echo -e "${NC}7) ${BOLD_CYAN}退出脚本并清理缓存${NC}"
+echo -e "${NC}7) ${BOLD_CYAN}GoogleHook(适用于Android8-16)"
+echo
+echo -e "${NC}8) ${BOLD_CYAN}退出脚本并清理缓存${NC}"
 echo
 echo -e "${BOLD_YELLOW}=================================${NC}"
 echo
 echo -ne "[输入] ${BOLD_GREEN}"
 read fs
 
+GoogleHook() {
+echo
+sleep 0.5
+echo -e "${BOLD_PURPLE}[输出] 正在跳转至GoogleHook...${NC}"
+sleep 2.3
+clear
+echo "Googlekey||cd>/xml/#!/bin/bash&keybox"
+sleep 0.1
+echo -e "${BOLD_YELLOW}========== GoogleHook ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}GoogleHook"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}内核级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
+}
 sasllysu() {
 echo
 sleep 0.5
 echo -e "${BOLD_PURPLE}[输出] 正在跳转至sallySU...${NC}"
 sleep 2.3
 clear
-echo "sallySU||cd>/sdcard/#!/bin/bash&system"
+echo "sallySU||cd>/data/#!/bin/bash&system"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== sallySU ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}sallySU"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}内核级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 BootROM() {
 echo
@@ -206,6 +240,12 @@ clear
 echo "BootROM||cd>/sdcard/#!/bin/sh&system"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== BootROM ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}BootROM"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}用户级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 VmU() {
 echo
@@ -216,6 +256,12 @@ clear
 echo "Ultra||cd>/sdcard/#!/bin/bash&system"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== VmUltra ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}VmUltra"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}用户级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 Bashing() {
 echo
@@ -226,6 +272,12 @@ clear
 echo "bash||cd>/sdcard/#!/bin/bash&Imge"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== Bashing ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}Bashing"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}内核级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 Jzs() {
 echo
@@ -236,6 +288,12 @@ clear
 echo "bin||cd>/sdata/#!/bin/bash&system.sh"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== JzsData ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}JzsData"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}用户级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 YT() {
 echo
@@ -246,6 +304,12 @@ clear
 echo "suca||cd>/Android/#!/bin/bash/&Base64_end"
 sleep 0.1
 echo -e "${BOLD_YELLOW}========== YTintPro ==========${NC}"
+echo
+echo -e "● ${BOLD_CYAN}名称：${NC}YTintPro"
+echo
+echo -e "● ${BOLD_CYAN}等级：${NC}内核级"
+echo
+echo -e "${BOLD_YELLOW}=================================${NC}"
 }
 case $fs in
     1)
@@ -363,7 +427,20 @@ case $fs in
        YT
     ;;
     7)
-       echo -e "${NC}"
+              # 获取Android版本号（主版本）
+       android_version=$(getprop ro.build.version.release | cut -d. -f1)
+
+       # 检测Android版本是否大于8且小于15
+       if [ -n "$android_version" ] && [ "$android_version" -gt 7 ] && [ "$android_version" -lt 17 ]; then
+       echo "Android版本符合条件"
+       else
+       echo "Android版本不符合条件"
+       exit 1
+       fi
+       GoogleHook
+    ;;
+    8)
+    echo -e "${NC}"
        echo "[输出] 再见 ！"
        rm -rf /sdcard/NSU
        exit 0
@@ -375,12 +452,12 @@ case $fs in
     ;;
 esac
 echo
-sleep 0.16
+sleep 0.6
 echo -e "${BOLD_CYAN}正在解锁Bootloader...${NC}"
-sleep 0.3
+sleep 0.5
 echo
 echo -e "[输入] ${BOLD_GREEN}unlock bootloader${NC}"
-sleep 0.3
+sleep 0.5
 echo
 yes=0
 no=1
@@ -390,7 +467,7 @@ if [ "$yes" = "0" ]; then
    sleep 0.6
    echo -e "${BOLD_BLUE}反馈码为0，解锁成功！"
 else
-   sleep 0.3
+   sleep 0.6
    echo -e "${BOLD_RED}反馈码为1，解锁失败"
    exit 1
 fi
@@ -399,7 +476,10 @@ echo
 echo -e "${NC}[执行] ${BOLD_CYAN}正在绕过SELinux程序..."
 sleep 0.5
 echo
-echo -e "${NC}[执行] ${BOLD_CYAN}正在链接服务器${NC}"
+echo -e "${NC}[执行] ${BOLD_CYAN}正在识别AB分区..."
+sleep 0.549
+echo
+echo -e "${NC}[连接] ${BOLD_CYAN}正在链接服务器${NC}"
 sleep 0.1
 echo
 jdt
